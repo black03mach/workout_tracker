@@ -38,10 +38,10 @@ const wodSchema = new Schema({
     }
 });
 
-wodSchema.virtual("totalDuration").get(function() {
-    return this.exercises.reduce((total, exercise)=> {
+wodSchema.virtual("totalDuration").get(function () {
+    return this.exercises.reduce((total, exercise) => {
         return total + exercise.duration
-    },0)
+    }, 0)
 })
 
 const WOD = mongoose.model('wod', wodSchema);
