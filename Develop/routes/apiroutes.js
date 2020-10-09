@@ -10,6 +10,7 @@ router.get('/api/workouts/range', function (req, res) {
 });
 
 router.get('/api/workouts', (req, res) => {
+    console.log("/api/workouts get")
     WOD.find().then(wodDb => {
         res.json(wodDb);
     }).catch(err => {
@@ -32,7 +33,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 });
 
 router.post('/api/workouts', (req, res) => {
-    console.log("Post in here")
+    console.log("/api/workouts in here")
     WOD.create(req.body).then(wodDb => {
         res.json(wodDb);
     }).catch(err => {
@@ -41,6 +42,7 @@ router.post('/api/workouts', (req, res) => {
 });
 
 router.post('/api/workouts/range', function (req, res) {
+    console.log("/api/workouts/range in here ")
     WOD.find().then(wodDb => {
         res.json(wodDb)
     }).catch(err => {
