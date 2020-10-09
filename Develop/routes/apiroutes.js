@@ -18,7 +18,9 @@ router.get('/api/workouts', (req, res) => {
 });
 
 router.put('/api/workouts/:id', ({body, params}, res) => {
+    console.log(body, params);
     WOD.findByIdAndUpdate(
+        // id is returned undefined
         params.id,
         {$push: {exercises: body}},
         {new: true, runValidators: true}
@@ -30,6 +32,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
 });
 
 router.post('/api/workouts', (req, res) => {
+    console.log("Post in here")
     WOD.create(req.body).then(wodDb => {
         res.json(wodDb);
     }).catch(err => {
