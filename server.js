@@ -15,9 +15,16 @@ app.use(routes);
 app.use(routes2);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts",
- {
-        useNewUrlParser: true
+{
+    useNewUrlParser: true
+}, function (err, db) {
+    if(err){
+        console.log(err)
     }
+    else{
+        console.log("connected")
+    }
+}
 );
 
 app.listen(PORT, function () {
