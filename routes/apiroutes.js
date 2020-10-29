@@ -26,7 +26,7 @@ router.put('/api/workouts/:id', ({body, params}, res) => {
         {$push: {exercises: body}},
         {new: true, runValidators: true}
     ).then(wodDb => {
-        console.log(wodDb);
+        console.log(wodDb)
         res.json(wodDb);
     }).catch(err => {
         res.json.apply(err);
